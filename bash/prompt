@@ -1,4 +1,4 @@
-# Promt config
+# Prompt config
 # [~ (git_branch)] user@hostname »
 # [ GREEN current directory END_GREEN ( YELLOW git branch ) ] user@hostname END_YELLOW »
 # The __git_ps1 comes from the ~/.dotfiles/lib/git_completion file
@@ -21,6 +21,6 @@ function rvm_prompt_info() {
 export PS1="\
 \[$(colour green)\]\w\[$(colour reset)\] \
 \[$(colour cyan)\]\[$(rvm_prompt_info)\]\[$(colour reset)\]\
-\[$(colour light_yellow)\]\$(__git_ps1 \" (%s)\") \
+\[$(colour light_yellow)\]\$(__git_ps1 \"(%s)\") \
 \[$(colour light_yellow)\]\[$(user_hostname)\]\[$(colour reset)\] \
 \[$(colour $(prompt_color))\]»\[$(colour reset)\] "
