@@ -50,11 +50,11 @@ tabSize          = 2
 
 [ source.python ]
 softTabs         = true
-tabSize          = 4
+tabSize          = 2
 
 [ source.ruby ]
 softTabs         = true
-tabSize          = 4
+tabSize          = 2
 
 [ "{README,INSTALL,LICENSE,TODO}" ]
 fileType         = "text.plain"
