@@ -81,3 +81,6 @@ function prompt_color() { # bjeanes
     fi
   fi
 }
+
+# Copy directory with spaces in file names cp -R does NOT work
+# ( cd /path/to/src ; tar cf - . ) | ( cd /path/to/obj ; tar xf - )
