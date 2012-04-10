@@ -25,6 +25,7 @@ excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 #
 #TM_HG  = "/opt/local/bin/hg"
 TM_GIT = "/usr/local/bin/git"
+TM_RUBY = "$HOME/.rvm/bin/rvm-auto-ruby"
 
 # Default editing configuration
 #
