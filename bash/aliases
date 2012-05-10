@@ -13,3 +13,9 @@ function railsapp {
 
 # misc
 alias reload='. ~/.bash_profile'
+
+# tmux alias to start tmux with socket /tmp/multi
+alias tmuxmulti="if tmux -S /tmp/multi has -t AO-PPS; then reattach-to-user-namespace tmux -S /tmp/multi attach; else reattach-to-user-namespace tmux -S /tmp/multi new -s AO-PPS; fi"
+
+#tmux  alias to ssh into someone's box and attach to to their session
+alias tmuxer="ssh username@xxx.xxx.xxx.xxx -t '/opt/local/bin/tmux -S /tmp/multi attach'"
