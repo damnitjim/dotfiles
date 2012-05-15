@@ -21,6 +21,10 @@ function h {
   history | grep $1 | tail
 }
 
+function git_clean {
+  find . -iname "*.orig" -exec rm -i \{\} \;;
+}
+
 # Restart passenger or pow server
 function rp {
   if [ -e tmp ]; then
