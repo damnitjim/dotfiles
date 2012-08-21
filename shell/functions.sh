@@ -86,5 +86,9 @@ function prompt_color() { # bjeanes
   fi
 }
 
+function git-clean-orig {
+    git status -su | grep -e"\.orig$" | cut -f2 -d" " | xargs rm
+}
+
 # Copy directory with spaces in file names cp -R does NOT work
 # ( cd /path/to/src ; tar cf - . ) | ( cd /path/to/obj ; tar xf - )
