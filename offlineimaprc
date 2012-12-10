@@ -1,0 +1,39 @@
+[general]
+ui = TTY.TTYUI
+accounts = JimSalinas
+pythonfile=~/.offlineimap.py
+fsync = False
+
+[Account JimSalinas]
+localrepository = JimSalinas-Local
+remoterepository = JimSalinas-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository JimSalinas-Local]
+type = Maildir
+localfolders = ~/.mail/salinas.j_gmail
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository JimSalinas-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = salinas.j@gmail.com
+remotepasseval = get_keychain_pass(account="salinas.j@gmail.com", server="imap.gmail.com")
+cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
