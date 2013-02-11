@@ -7,11 +7,21 @@
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x783.html
 
-# RVM info
-function rvm_prompt_info() {
-  ruby_version='$(~/.rvm/bin/rvm-prompt 2> /dev/null)' || return
-  if [[ "$ruby_version" !=  "" ]]; then
-    echo "[$ruby_version]"
+# rbenv info
+function rbenv_prompt_info()  {
+  version_string=$(rbenv version-name)
+  case ${version_string%-*} in
+    1.8.6)  version_string="❻"  ;;
+    1.8.7)  version_string="❼"  ;;
+    1.9.1)  version_string="❶"  ;;
+    1.9.2)  version_string="❷"  ;;
+    1.9.3)  version_string="❸"  ;;
+    *)      version_string="♢"  ;;
+  esac
+  
+  [ -f "$(pwd)/.rbenv-gemsets" ] && gemset_string=" ⟡ $(rbenv gemset active | cut -d' ' -f1)"
+  if [ ! $version_string = '' ]; then
+    echo "$version_string$gemset_string "
   else
     echo "system"
   fi
@@ -19,7 +29,7 @@ function rvm_prompt_info() {
 
 export PS1="\
 \[$(colour green)\]\w ⚡\[$(colour reset)\] \
-\[$(colour cyan)\]$(rvm_prompt_info)\[$(colour reset)\]\
+\[$(colour cyan)\]\$(rbenv_prompt_info \"(%s)\")\[$(colour reset)\]\
 \[$(colour light_yellow)\]\$(__git_ps1 \"(%s)\") \
 \[$(colour light_yellow)\]$(user_hostname)\[$(colour reset)\] \
 \[$(colour $(prompt_color))\]»\[$(colour reset)\] "
