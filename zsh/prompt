@@ -72,12 +72,13 @@ function precmd {
   local cwd='%{${fg_bold[green]}%}$(prompt_pwd)%{${reset_color}%}'
   local usr='%{${fg[yellow]}%}$(user_hostname) '
   local char='%{${fg[$(prompt_color)]}%}»%{${reset_color}%} '
-  local rvm='%{${fg_bold[cyan]}%}$(rvm_prompt_info)%{${reset_color}%} '
+  # local rvm='%{${fg_bold[cyan]}%}$(rvm_prompt_info)%{${reset_color}%} '
   local git='%{${fg_bold[yellow]}%}$(git_branch)$(git_sha)%{${reset_color}%}$(git_stash) '
   local time='%* '
 
   PROMPT=$cwd$usr$char
-  RPROMPT=$rvm$git$time
+  # RPROMPT=$rvm$git$time
+  RPROMPT=$git$time
 
   PROMPT2=$char
   RPROMPT2='[%_]'
