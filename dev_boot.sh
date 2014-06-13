@@ -76,6 +76,9 @@ echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries a
 
 echo "Installing ruby-build for installing Rubies ..."
   successfully brew install ruby-build
+  
+echo "Installing rbenv plugin gemset"
+  successfully brew install rbenv-gemset
 
 echo "Installing Ruby 1.9.3-p392 ..."
   CC=gcc-4.2 successfully rbenv install 1.9.3-p392

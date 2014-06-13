@@ -25,9 +25,10 @@ excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 #
 #TM_HG  = "/opt/local/bin/hg"
 TM_GIT = "/usr/local/bin/git"
-# TM_RUBY = "$HOME/dotfiles/shell/rbenv-auto-ruby.sh" # didn't work
+# TM_RUBY = "$HOME/dotfiles/shell/rbenv-auto-ruby.sh" 
+# didn't work
 
-TM_RUBY = "$HOME/.rbenv/shims/ruby"
+# TM_RUBY = "$HOME/.rbenv/shims/ruby"
 
 # Default editing configuration
 #
