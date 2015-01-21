@@ -11,4 +11,4 @@ if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
 
-PATH=$PATH
+PATH=~/work/document_management/bin:$PATH

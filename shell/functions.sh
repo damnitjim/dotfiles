@@ -90,5 +90,9 @@ function git-clean-orig {
     git status -su | grep -e"\.orig$" | cut -f2 -d" " | xargs rm
 }
 
+function title {
+  echo -ne "\033]0;"$*"\007"
+}
+
 # Find and replace
 #find . -type f -exec perl -p -i -e "s/jim\.salinas/jimsalinas/g" {} \;
